@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
-import UpdatedComponent from './withCounter';
+import HocCounter from './HocCounter';
 
-export class ClickCounter extends Component {
-  
-
+export class DecrementCounter extends Component {
   render() {
-    const {count, incrementCount} = this.props;
-    console.log("=============Click Increment",this.props)
+    // const {count}  = this.state;
+    const {count, decrementCounter} = this.props;
+
     return (
       <>
         {/* <View
@@ -22,19 +21,24 @@ export class ClickCounter extends Component {
 
         <TouchableOpacity
           style={{
-            width: 170,
-            height: 30,
-            borderColor: 'red',
-            borderRadius: 18,
-            borderWidth: 1,
             justifyContent: 'center',
             alignItems: 'center',
+            width: 160,
+            height: 30,
+            borderWidth: 1,
+            borderColor: 'green',
+            borderRadius: 18,
             marginTop: 5,
           }}
-          onPress={incrementCount}
-          >
-          <Text style={{color: 'red', fontWeight: '500', fontSize: 12}}>
-            Clicked {count} Times
+          onPress={decrementCounter}>
+          <Text
+            style={{
+              fontWeight: '500',
+              fontSize: 12,
+              color: 'green',
+            }}>
+            {' '}
+            Decrement {count} time{' '}
           </Text>
         </TouchableOpacity>
       </>
@@ -42,4 +46,4 @@ export class ClickCounter extends Component {
   }
 }
 
-export default UpdatedComponent(ClickCounter);
+export default HocCounter(DecrementCounter);

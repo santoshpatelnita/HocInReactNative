@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
 import {Text, View} from 'react-native';
 
-const UpdatedComponent = OriginalComponent => {
-  class NewComponent extends React.Component {
+const HocCounter = OriginalComponent => {
+  class HocCounter extends React.Component {
     constructor(props) {
       super(props);
-
-      this.state = {
-        count: 0,
-      };
+        this.state = {
+          count: 0,
+        };
     }
 
     incrementCount = () => {
@@ -33,7 +32,7 @@ const UpdatedComponent = OriginalComponent => {
       );
     }
   }
-  return NewComponent;
+  return HocCounter;
 };
 
-export default UpdatedComponent;
+export default HocCounter;
